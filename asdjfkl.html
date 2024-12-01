@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Picker</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #0a0a0a;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  background:  #306b33;
+  padding: 400px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: #ddd8d8;
+  color:  #45a049;
+  padding: 20px 90px;
+  border: none;
+  font-size: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #cacaca;
+}
+
+p {
+  font-size: 50px;
+  color:  #e9e5e5;
+  margin-top: 20px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button id="pickButton">Pick</button>
+    <p id="output"></p>
+  </div>
+
+  <script >
+    document.getElementById("pickButton").addEventListener("click", function() {
+  let section = Math.random() < 0.5 ? 'Section 1' : 'Section 2';
+  let unit, lesson;
+
+  if (section === 'Section 1') {
+    unit = Math.floor(Math.random() * (16 - 8 + 1)) + 8;
+  } else {
+    unit = Math.floor(Math.random() * 15) + 1;
+  }
+
+  lesson = Math.floor(Math.random() * 4) + 1;
+
+  document.getElementById("output").textContent = `${section}, Unit ${unit}, Lesson ${lesson}`;
+});
+
+  </script>
+</body>
+</html>
